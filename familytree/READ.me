@@ -1,0 +1,51 @@
+# Family Tree CLI Application
+
+## Description
+This is a console-based **Family Tree application** implemented in Java.  
+It allows you to model people, relationships, and perform queries such as ancestors, descendants, siblings, and marriages.  
+The project demonstrates **Object-Oriented Programming concepts** and **design patterns**.
+
+---
+
+## Features
+- Add a person with name, gender, birth year, and optional death year.  
+- Link **parents and children** (max 2 parents per child).  
+- Record **marriages** with optional divorce.  
+- Query the family tree:
+  - Ancestors up to N generations
+  - Descendants up to N generations
+  - Siblings
+  - Children
+  - Spouse
+- Show a **summary** of a person with key fields and counts.  
+
+---
+
+## OOP Concepts Used
+- **Encapsulation:** All fields are private; setters validate data.  
+- **Inheritance & Polymorphism:** `Person` is abstract; `Adult` and `Minor` extend it.  
+- **Interfaces / Abstraction:**  
+  - `FamilyComponent` (Composite)  
+  - `TraversalStrategy` (Strategy)  
+  - `Renderer` (Strategy)  
+- **Composition:** `Person` contains children and spouse.  
+
+---
+
+## Design Patterns
+1. **Composite** (`Person` implements `FamilyComponent`)  
+   - Each person can have children; allows uniform tree traversal.  
+
+2. **Factory** (`PersonFactory`)  
+   - Centralized creation of `Person` objects with unique IDs and input validation.  
+
+3. **Strategy** (`TraversalStrategy` and `Renderer`)  
+   - Allows pluggable tree traversal (DFS/BFS) and different rendering styles (IndentedTreeRenderer / LineRenderer).  
+
+---
+
+## How to Run
+1. Make sure you have **Java 17+** installed.  
+2. Compile the project:
+   ```bash
+   javac *.java
